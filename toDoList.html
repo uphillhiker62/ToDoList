@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,37 +7,64 @@
     <link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div class="container">
-    <header class="headBar">
-        <div class="headContain">
-            <div class="myName">
-                <p>Cody Gates</p>
-            </div>
-            <div class="myList">
-                <p>My List of To Do's</p>
-            </div>
-        </div>
-    </header>
 
-    <div class="main">
-        <div class="header">
-            <input id="inputBox" type="text" placeholder="New List Title">
-            <a href="#" class="btn">Add List</a>
-        </div>
-        <div class="toDoList">
-            <ul class="listItems">
-                <li class="item" contenteditable="true">
-                    <span>List Label</span>
-                    <!--<ul>-->
-                        <!--<li><span>ajdalsd</span></li>-->
-                    <!--</ul>-->
-                </li>
-            </ul>
+    <div class="container">
+        <header class="headBar">
+            <div class="headContain">
+                <div class="myName">
+                    <p>Cody Gates</p>
+                </div>
+                <div class="myList">
+                    <p>My List of To Do's</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="allMyToDos">
+            <div class="main">
+                <div class="header">
+                    <input id="inputBox" type="text" placeholder="New List Title">
+                    <a href="#" class="btn">Add List</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="rowLeft">
+                    <div class="iconSpot fa fa-check-square" aria-hidden="true"></div>
+                    <div class="label" contenteditable="true">feed dog</div>
+                </div>
+                <div class="rowRight">
+                    <a class="compBtn" href="#" onclick="markComplete(this)"><i class="fa fa-check" aria-hidden="true"></i></a>
+                    <a class="removeRow fa fa-trash-o" href="#" onclick="removeRow(this)"></a>
+                    <a class="addTask" href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="rowLeft">
+                    <div class="iconSpot fa fa-check-square" aria-hidden="true"></div>
+                    <div class="label" contenteditable="true">feed dog</div>
+                </div>
+                <div class="rowRight">
+                    <a class="compBtn" href="#" onclick="markComplete(this)"><i class="fa fa-check" aria-hidden="true"></i></a>
+                    <a class="removeRow fa fa-trash-o" href="#" onclick="removeRow(this)"></a>
+                    <a class="addTask" href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="rowLeft">
+                    <div class="iconSpot fa fa-check-square" aria-hidden="true"></div>
+                    <div class="label" contenteditable="true">feed dog</div>
+                </div>
+                <div class="rowRight">
+                    <a class="compBtn" href="#" onclick="markComplete(this)"><i class="fa fa-check" aria-hidden="true"></i></a>
+                    <a class="removeRow fa fa-trash-o" href="#" onclick="removeRow(this)"></a>
+                    <a class="addTask" href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 <script src="toDo.js"></script>
 </body>
 </html>

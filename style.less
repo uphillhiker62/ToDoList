@@ -35,7 +35,9 @@ body {
   border-radius: 10px;
   background: #f4f8f9;
   font: 15px @myFont;
-  overflow: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   .headBar {
     display: flex;
@@ -53,56 +55,162 @@ body {
     }
   }
 
-  .main {
-    width: 90%;
-    height: auto;
-    margin: 25px auto;
+  .allMyToDos {
+    overflow: scroll;
 
-    .header {
-      display: flex;
-      justify-content: center;
-      width: 100%;
+    .main {
+      width: 90%;
+      height: auto;
+      margin: 25px auto;
 
-      #inputBox {
+      .header {
+        display: flex;
+        justify-content: center;
         width: 100%;
-        height: 42px;
-        margin-right: 9px;
-        padding-left: 10px;
-      }
-    }
-  }
 
-    .toDoList {
-      display: flex;
-      align-items: center;
-      background-color: #FFFFFF;
-      width: 100%;
-      //height: 50px;
-      margin-top: 30px;
-
-      ul {
-        width: 100%;
-        padding: 0;
-        list-style-type: none;
-        margin: 0;
-
-        li {
-          display: flex;
-          align-items: center;
-          //flex-direction: column;
-          height: 50px;
-          border: 1px solid lightgrey;
-
-          &:nth-child(even){
-            background-color: #efefef;
-          }
-
-          span {
-            padding: 0 10px;
-          }
+        #inputBox {
+          width: 100%;
+          height: 42px;
+          margin-right: 9px;
+          padding-left: 10px;
         }
       }
     }
+
+    .complete {
+      color: green;
+      border-color: green;
+    }
+
+    .row {
+      padding: 12px 3px;
+      border: 1px solid #dadfea;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+      width: 89%;
+      background-color: #FFFFFF;
+
+      &:nth-child(odd){
+        background-color: #efefef;
+      }
+
+      &:hover {
+        background: #989898;
+      }
+
+      .rowLeft {
+        display: flex;
+
+        .iconSpot {
+          margin: 0px 8px;
+          width: 16px;
+        }
+
+        .label {
+          //display: flex;
+          //flex-wrap: wrap;
+        }
+      }
+
+      .rowRight {
+        display: flex;
+        justify-content: space-between;
+        font-size: 22px;
+        margin-right: 7px;
+
+        .compBtn {
+          color: @blueBtn;
+        }
+
+        .removeRow {
+          padding: 0 7px;
+          color: #000000;
+          text-decoration: none;
+        }
+
+        .addTask {
+          color: @blueBtn;
+        }
+      }
+  }
+  }
+
+
+
+//  .toDoList {
+//    display: flex;
+//    align-items: center;
+//    width: 100%;
+//    //height: 50px;
+//    margin-top: 30px;
+//
+//    .listItems {
+//      width: 100%;
+//      padding: 0;
+//      list-style-type: none;
+//      margin: 0;
+//
+//      .item {
+//        display: flex;
+//        justify-content: space-between;
+//        align-items: center;
+//        //flex-direction: column;
+//        height: 50px;
+//
+//
+//        &:nth-child(even){
+//          background-color: #efefef;
+//        }
+//
+//        .itemLeft {
+//          display: flex;
+//          justify-content: space-between;
+//          background-color: #FFFFFF;
+//          border: 1px solid lightgrey;
+//          width: 100%;
+//          margin-right: 9px;
+//
+//          .displayItem {
+//            display: flex;
+//            justify-content: space-between;
+//            align-items: baseline;
+//
+//            .iconSpot {
+//              margin: 0 10px;
+//              width: 16px;
+//            }
+//
+//            p {
+//
+//            }
+//          }
+//
+//          .addTask {
+//            display: flex;
+//            justify-content: space-between;
+//            align-items: center;
+//            padding-right: 10px;
+//
+//            .fa {
+//              color: black;
+//            }
+//          }
+//        }
+//
+//        .itemRight {
+//          width: 90.63px;
+//          display: flex;
+//          justify-content: space-around;
+//        }
+//
+//        span {
+//          padding: 0 10px;
+//        }
+//      }
+//    }
+//  }
 }
 
 @media screen and (min-width: 1100px) {
