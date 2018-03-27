@@ -4,7 +4,7 @@
 
 $("input[type='text']").keyup(function(event){
     if(event.which === 13) {
-        let addToDo = $(this).val();
+        var addToDo = $(this).val();
         $(".toDoItems").append(
             '<div class="row">' +
                 '<div class="rowLeft">' +
@@ -29,14 +29,14 @@ $("input[type='text']").keyup(function(event){
 
 //Mark item complete:
 function markComplete(myElement) {
-    let myDad = $(myElement).parent().parent();
+    var myDad = $(myElement).parent().parent();
     $(myDad).toggleClass("complete");
     $(myDad).find(".iconSpot").toggleClass("fa fa-check-square");
 }
 
 //Remove item:
 function removeRow(myElement) {
-    let grandDad = $(myElement).parent().parent();
+    var grandDad = $(myElement).parent().parent();
     $(grandDad).fadeOut("slow", function () {
         $(grandDad).remove();
     });
