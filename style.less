@@ -34,7 +34,7 @@ body {
   height: 90%;
   border-radius: 10px;
   background: #f4f8f9;
-  font: 15px @myFont;
+  font: 13px @myFont;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -80,6 +80,7 @@ body {
     .complete {
       color: green;
       border-color: green;
+      text-decoration: line-through;
     }
 
     .row {
@@ -91,13 +92,14 @@ body {
       margin: 0 auto;
       width: 89%;
       background-color: #FFFFFF;
+      flex-wrap: wrap;
 
       &:nth-child(odd){
         background-color: #efefef;
       }
 
       &:hover {
-        background: #989898;
+        background: #d4d3d3;
       }
 
       .rowLeft {

@@ -1,26 +1,15 @@
-// $("ul").on("click", "li", function(){
-//     $(this).css("color", "gray");
-// });
 
-//new line class:
-// class newLine()
-//
-// function appendItems() {
-//     $("ul").append("<li class=\"item\" contenteditable=\"true\"><p>" + addToDo + "</p></li>");
-//     // $("ul").append("<li class=\"item\" contenteditable=\"true\"><p>" + addToDo + "</p></li>");
-//     // $("ul").append("<li class=\"item\" contenteditable=\"true\"><p>" + addToDo + "</p></li>");
-//     // $("ul").append("<li class=\"item\" contenteditable=\"true\"><p>" + addToDo + "</p></li>");
-// }
 
+//Add new item by pressing enter:
 
 $("input[type='text']").keyup(function(event){
     if(event.which === 13) {
         let addToDo = $(this).val();
         $(".toDoItems").append(
-            '<div class=\"row\">' + addToDo +
+            '<div class="row">' +
                 '<div class="rowLeft">' +
                     '<div class="iconSpot fa fa-check-square" aria-hidden="true"></div>' +
-                    '<div class="label" contenteditable="true"></div>' +
+                    '<span  contenteditable="true">' + addToDo + '</span>' +
                 '</div>' +
                 '<div class="rowRight">' +
                     '<a class="compBtn" href="#" onclick="markComplete(this)"><i class="fa fa-check" aria-hidden="true"></i></a>' +
@@ -32,38 +21,23 @@ $("input[type='text']").keyup(function(event){
     }
 });
 
+//Add new item by click add list button****************
 
 
 
-// $("#inputBox").keyup(function(event){
-//     if(event.which === 13) {
-//         let addToDo = $(this).val();
-//         $(this).val("");
-//         $("ul").append("<li class=\"item\" contenteditable=\"true\"><p>" + addToDo + "</p></li>");
-//     }
-// });
-//
-//
-//
-// $('.button').click(function() {
-//     $('#myContainer').append('<div>the new guy</div>');
-// });
-//
-//
-//
-//
-// ///
-//
-//
+
+
+//Mark item complete:
 function markComplete(myElement) {
     let myDad = $(myElement).parent().parent();
     $(myDad).toggleClass("complete");
     $(myDad).find(".iconSpot").toggleClass("fa fa-check-square");
 }
 
+//Remove item:
 function removeRow(myElement) {
     let grandDad = $(myElement).parent().parent();
-    $(grandDad).slideUp("fast", function () {
+    $(grandDad).fadeOut("slow", function () {
         $(grandDad).remove();
     });
 }

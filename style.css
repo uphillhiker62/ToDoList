@@ -29,7 +29,7 @@ body {
   height: 90%;
   border-radius: 10px;
   background: #f4f8f9;
-  font: 15px 'Archivo', sans-serif;
+  font: 13px 'Archivo', sans-serif;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -70,6 +70,7 @@ body {
 .container .toDoBox .complete {
   color: green;
   border-color: green;
+  text-decoration: line-through;
 }
 .container .toDoBox .row {
   padding: 12px 3px;
@@ -80,12 +81,13 @@ body {
   margin: 0 auto;
   width: 89%;
   background-color: #FFFFFF;
+  flex-wrap: wrap;
 }
 .container .toDoBox .row:nth-child(odd) {
   background-color: #efefef;
 }
 .container .toDoBox .row:hover {
-  background: #989898;
+  background: #d4d3d3;
 }
 .container .toDoBox .row .rowLeft {
   display: flex;
