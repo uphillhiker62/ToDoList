@@ -20,7 +20,7 @@
 .itemBtn {
   background-color: #1F5899;
   padding: 6px;
-  /* width: 35px; */
+  width: 35px;
   color: #FFFFFF;
   text-decoration: none;
   border: 1px;
@@ -31,12 +31,17 @@
   justify-content: center;
   height: 13px;
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.32);
-  margin: 10px;
+  margin-left: 5px;
 }
 .itemBtn:hover {
   background-color: #4CAF50;
   /* Green */
   color: white;
+}
+.complete {
+  color: green;
+  border-color: green;
+  text-decoration: line-through;
 }
 body,
 html {
@@ -94,13 +99,12 @@ body {
   height: 42px;
   margin-right: 9px;
   padding-left: 10px;
+  border: 3px solid #dadfea;
 }
-.container .toDoBox .complete {
-  color: green;
-  border-color: green;
-  text-decoration: line-through;
+.container .toDoBox .toDoItems {
+  width: 100%;
 }
-.container .toDoBox .itemContainer {
+.container .toDoBox .toDoItems .listContainer {
   /* padding: 12px 3px; */
   border: 3px solid #dadfea;
   /* display: flex; */
@@ -110,7 +114,7 @@ body {
   width: 89%;
   background-color: #FFFFFF;
 }
-.container .toDoBox .itemContainer .row {
+.container .toDoBox .toDoItems .listContainer .row {
   padding: 12px 3px;
   /* border: 1px solid #dadfea; */
   display: flex;
@@ -121,49 +125,58 @@ body {
   background-color: #efefef;
   /* flex-wrap: wrap; */
 }
-.container .toDoBox .itemContainer .row:hover {
+.container .toDoBox .toDoItems .listContainer .row:hover {
   background: #d4d3d3;
 }
-.container .toDoBox .itemContainer .row .rowLeft {
+.container .toDoBox .toDoItems .listContainer .row .rowLeft {
   display: flex;
   padding-left: 8px;
 }
-.container .toDoBox .itemContainer .row .rowLeft .iconSpot {
-  margin: 0px 8px;
-  width: 16px;
-}
-.container .toDoBox .itemContainer .row .rowRight {
+.container .toDoBox .toDoItems .listContainer .row .rowRight {
   display: flex;
   justify-content: space-between;
   font-size: 22px;
   margin-right: 7px;
 }
-.container .toDoBox .itemContainer .row .rowRight .compBtn {
+.container .toDoBox .toDoItems .listContainer .row .rowRight .listCompBtn {
   color: #1F5899;
 }
-.container .toDoBox .itemContainer .row .rowRight .compBtn :hover {
+.container .toDoBox .toDoItems .listContainer .row .rowRight .listCompBtn :hover {
   color: #4CAF50;
-  /* Green */
 }
-.container .toDoBox .itemContainer .row .rowRight .removeRow {
+.container .toDoBox .toDoItems .listContainer .row .rowRight .removeRow {
   padding: 0 7px;
   color: #000000;
   text-decoration: none;
 }
-.container .toDoBox .itemContainer .row .rowRight .removeRow:hover {
+.container .toDoBox .toDoItems .listContainer .row .rowRight .removeRow:hover {
   color: red;
 }
-.container .toDoBox .itemContainer .row .rowRight .addTask {
+.container .toDoBox .toDoItems .listContainer .row .rowRight .addTaskBtn {
   color: #1F5899;
 }
-.container .toDoBox .itemContainer .listItems {
+.container .toDoBox .toDoItems .listContainer .listItemsContainer {
+  display: flex;
+  margin: 10px 10px;
+}
+.container .toDoBox .toDoItems .listContainer .listItemsContainer .addListItem {
   display: flex;
   justify-content: space-between;
 }
-.container .toDoBox .itemContainer .listItems .itemInput {
-  margin: 10px 0 10px 10px;
-  height: 20px;
-  width: 100%;
+.container .toDoBox .toDoItems .listContainer .listItemsContainer .addListItem .listItemInputBox {
+  width: 75%;
+  height: 30px;
+  margin: 10px 0;
+  border: 3px solid #dadfea;
+}
+.container .toDoBox .toDoItems .listContainer .listItemsContainer .itemBox .item {
+  display: flex;
+}
+.container .toDoBox .toDoItems .listContainer .listItemsContainer .itemBox .item .listCompBtn {
+  color: #1F5899;
+}
+.container .toDoBox .toDoItems .listContainer .listItemsContainer .itemBox .item .listCompBtn:hover {
+  color: #4CAF50;
 }
 @media screen and (min-width: 1100px) {
   .container {

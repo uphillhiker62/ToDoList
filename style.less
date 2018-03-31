@@ -24,7 +24,7 @@
 .itemBtn {
   background-color: #1F5899;
   padding: 6px;
-  /* width: 35px; */
+  width: 35px;
   color: #FFFFFF;
   text-decoration: none;
   border: 1px;
@@ -35,13 +35,20 @@
   justify-content: center;
   height: 13px;
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.32);
-  margin: 10px;
+  margin-left: 5px;
 
   &:hover {
     background-color: #4CAF50; /* Green */
     color: white;
   }
 }
+
+.complete {
+  color: green;
+  border-color: green;
+  text-decoration: line-through;
+}
+
 
 body, html {
   padding: 0;
@@ -102,101 +109,123 @@ body {
           height: 42px;
           margin-right: 9px;
           padding-left: 10px;
+          border: 3px solid #dadfea;
         }
       }
     }
 
+    .toDoItems {
+      width: 100%;
 
+      .listContainer{
+        /* padding: 12px 3px; */
+        border: 3px solid #dadfea;
+        /* display: flex; */
+        /* justify-content: space-between; */
+        /* align-items: center; */
+        margin: 3px auto;
+        width: 89%;
+        background-color: #FFFFFF;
 
-    .complete {
-      color: green;
-      border-color: green;
-      text-decoration: line-through;
-    }
+        //&:nth-child(odd){
+        //  background-color: #efefef;
+        //}
 
-    .itemContainer{
-      /* padding: 12px 3px; */
-      border: 3px solid #dadfea;
-      /* display: flex; */
-      /* justify-content: space-between; */
-      /* align-items: center; */
-      margin: 3px auto;
-      width: 89%;
-      background-color: #FFFFFF;
-
-      //&:nth-child(odd){
-      //  background-color: #efefef;
-      //}
-
-      .row {
-        padding: 12px 3px;
-        /* border: 1px solid #dadfea; */
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        /* margin: 0 auto; */
-        /* width: 89%; */
-        background-color: #efefef;
-        /* flex-wrap: wrap; */
-
-        &:hover {
-          background: #d4d3d3;
-        }
-
-        .rowLeft {
-          display: flex;
-          padding-left: 8px;
-
-          .iconSpot {
-            margin: 0px 8px;
-            width: 16px;
-          }
-
-          .label {
-            //display: flex;
-            //flex-wrap: wrap;
-          }
-        }
-
-        .rowRight {
+        .row {
+          padding: 12px 3px;
+          /* border: 1px solid #dadfea; */
           display: flex;
           justify-content: space-between;
-          font-size: 22px;
-          margin-right: 7px;
+          align-items: center;
+          /* margin: 0 auto; */
+          /* width: 89%; */
+          background-color: #efefef;
+          /* flex-wrap: wrap; */
 
-          .compBtn {
-            color: @blueBtn;
+          &:hover {
+            background: #d4d3d3;
+          }
 
-            :hover {
-              color: #4CAF50; /* Green */
+          .rowLeft {
+            display: flex;
+            padding-left: 8px;
+
+            .iconSpot {
+              //margin: 0px 8px;
+              //width: 16px;
+            }
+
+            .label {
+              //display: flex;
+              //flex-wrap: wrap;
             }
           }
 
-          .removeRow {
-            padding: 0 7px;
-            color: #000000;
-            text-decoration: none;
+          .rowRight {
+            display: flex;
+            justify-content: space-between;
+            font-size: 22px;
+            margin-right: 7px;
 
-            &:hover {
-              color: red;
+            .listCompBtn {
+              color: @blueBtn;
+
+              :hover {
+                color: #4CAF50;
+              }
             }
-          }
 
-          .addTask {
-            color: @blueBtn;
+            .removeRow {
+              padding: 0 7px;
+              color: #000000;
+              text-decoration: none;
+
+              &:hover {
+                color: red;
+              }
+            }
+
+            .addTaskBtn {
+              color: @blueBtn;
+            }
           }
         }
-      }
 
-      .listItems {
-        display: flex;
-        justify-content: space-between;
+        .listItemsContainer {
+          display: flex;
+          //justify-content: center;
+          margin: 10px 10px;
 
+          .addListItem {
+            display: flex;
+            justify-content: space-between;
 
-        .itemInput {
-          margin: 10px 0 10px 10px;
-          height: 20px;
-          width: 100%;
+            .listItemInputBox {
+              width: 75%;
+              height: 30px;
+              margin: 10px 0;
+              border: 3px solid #dadfea;
+            }
+
+            .itemBtn {
+
+            }
+          }
+
+          .itemBox {
+
+            .item {
+              display: flex;
+
+              .listCompBtn {
+                color: @blueBtn;
+
+                &:hover {
+                  color: #4CAF50;
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -208,10 +237,3 @@ body {
     width: 1000px;;
   }
 }
-
-//@media screen and (max-height: 900px) {
-//  .container {
-//    height: 723px;
-//  }
-//
-//}

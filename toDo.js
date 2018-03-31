@@ -5,95 +5,79 @@ $("input[type='text']").keyup(function (event) {
     if (event.which === 13) {
         let addToDo = $(this).val();
         $(".toDoItems").append(
-            '<div class="itemContainer">' +
+            '<div class="listContainer">' +
                 '<div class="row">' +
                     '<div class="rowLeft">' +
                 // '<div class="iconSpot fa fa-check-square" aria-hidden="true"></div>' +
                         '<span contenteditable="true">' + addToDo + '</span>' +
                     '</div>' +
                     '<div class="rowRight">' +
-                        '<a class="compBtn" href="#" onclick="markComplete(this)"><i class="fa fa-check" aria-hidden="true"></i></a>' +
-                        '<a class="removeRow fa fa-trash-o" href="#" onclick="removeRow(this)"></a>' +
-                        '<a class="addTask" href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>' +
+                        '<a class="listCompBtn" href="#" onclick="listMarkComplete(this)"><i class="fa fa-check" aria-hidden="true"></i></a>' +
+                        '<a class="removeRow fa fa-trash-o" href="#" onclick="removeList(this)"></a>' +
+                        '<a class="addTaskBtn" href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>' +
                     '</div>' +
                 '</div>' +
-                '<div class="listItems">' +
-                    '<input class="itemInput" id=' + addToDo + ' onkeyup="addItem" type="text" placeholder="Create new item name..">' +
-                    '<a href="#" onclick="addItemBtn()" class="itemBtn">Add</a>' +
+                '<div class="listItemsContainer".' +
+                    '<div class="addlistItem">' +
+                        '<input class="listItemInputBox" id=" + addToDo + " onkeyup="addItem(this, this.value, event)" type="text" placeholder="Create new item..">' +
+                        '<a href="#" class="itemBtn">Add</a>' +
+                    '</div>' +
+                    '<ul class="itemBox" style="padding: 0;">' +
+                        // '<li class="item">' +
+                        //     '<div class="itemLeft">' +
+                        //         '<span contenteditable="true">This is my list item</span>' +
+                        //     '</div>' +
+                        //     '<div class="itemRight">' +
+                        //         '<a class="itemCompBtn" href="#" onclick="itemMarkComplete(this)"><i class="fa fa-check" aria-hidden="true" style="color: #1F5899"></i></a>' +
+                        //         '<a class="removeItem fa fa-trash-o" href="#" onclick="removeItem(this)" style="color: #000000"></a>' +
+                        //     '</div>' +
+                        // '</li>' +
+                    '</ul>' +
                 '</div>' +
             '</div>');
         $('input').val('');
     }
 });
 
-function addItem(incId, myValue, event){
-    if(event.keyCode === 16){
-        $(incId).parent().find('.listItems').append('<div class=‘myItem’>'+ myValue +'</div>');
-        $(incId).val('');
+
+function addItem(add, myvalue, event){
+    if(event.which === 13){
+        $(".itemBox").append(
+            '<li class="item" style="display: flex; padding: 0 25px;">' +
+                '<a class="itemCompBtn" href="#" onclick="itemMarkComplete(this)"><i class="fa fa-check" aria-hidden="true" style="color: #1F5899;"></i></a>' +
+                '<a class="removeItem fa fa-trash-o" href="#" onclick="removeItem(this)" style="color: #000000; padding: 0 25px 0 5px"></a>' +
+                '<span contenteditable="true">' + "New item" + '</span>' +
+            '</li>');
+        $("input").val('');
     }
 }
 
+addItem();
 
-//Add new item by click add list button
-
-// function createNewList() {
-//     let div = document.createElement('div');
-//     let inputValue = document.getElementById("inputBox").value;
-//     let text = document.createTextNode(inputValue);
-//     div.appendChild(text);
-//
-//     document.getElementsByClassName("row")
-//
-//
-// }
-
-
-
-
-//Append Tasks to list items:
-
-// $("input[type='text']").keypress(function(event){
-//     if (event.which === 13) {
-//         let add = $(this).val();
-//         $(".itemContainer").append(
-//             '<div class="taskHeader">' +
-//                 '<input id="taskInput" type="text" placeholder="New List Item">' +
-//                 '<a href="#" onclick="addItemBtn()" class="btn">Add Item</a>' +
-//             '</div>' +
-//             '<div class="item-tasks">' +
-//                 '<span>' + add + '</span>' +
-//             '</div>');
-//         $('input').val('');
-//     }
-// });
 
 
 //Mark item complete:
-function markComplete(myElement) {
-    let myDad = $(myElement).parent().parent();
-    $(myDad).toggleClass("complete");
-    $(myDad).find(".iconSpot").toggleClass("fa fa-check-square");
+function listMarkComplete(myElement) {
+    let list = $(myElement).parent().parent();
+    $(list).toggleClass("complete");
+}
+
+function itemMarkComplete(myElement) {
+    let item = $(myElement).parent();
+    $(item).toggleClass("complete");
 }
 
 //Remove item:
-function removeRow(myElement) {
-    let grandDad = $(myElement).parent().parent().parent();
-    $(grandDad).slideToggle("slow", function () {
-        $(grandDad).remove();
+function removeList(myElement) {
+    let greatGrandDad = $(myElement).parent().parent().parent();
+    $(greatGrandDad).slideToggle("slow", function () {
+        $(greatGrandDad).remove();
     });
 }
 
-//
-// ////another option
-//
-// function removeRow(theElement){
-//     let granDad = $(theElement).parent().parent();
-//
-//     $(granDad).animate({
-//         opacity: 0,
-//         left: "+=50"
-//     }, 800, function() {
-//         // Animation complete.
-//         $(granDad).remove();
-//     });
-// }
+function removeItem(myElement) {
+    let greatGrandDad = $(myElement).parent();
+    $(greatGrandDad).slideToggle("slow", function () {
+        $(greatGrandDad).remove();
+    });
+}
