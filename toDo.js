@@ -29,7 +29,7 @@ $(document).ready(function(){
                 '</div>');
             $('#inputBox').val('');
         });
-    });
+});
 
 
 
@@ -52,7 +52,7 @@ $("input[type='text']").keyup(function (event) {
                 '<div class="listItemsContainer".' +
                     '<div class="addlistItem">' +
                         '<input class="listItemInputBox" id=" + addToDo + " onkeyup="addItem(this, this.value, event)" type="text" placeholder="Create new item..">' +
-                        '<a href="#" class="itemBtn">Add</a>' +
+                        '<a href="#" class="itemBtn" onclick="hello(this)">Add</a>' +
                     '</div>' +
                     '<ul class="itemBox" style="padding: 0;">' +
                     '</ul>' +
@@ -66,20 +66,22 @@ $("input[type='text']").keyup(function (event) {
 //add List Items by clicking the button or pressing enter:
 
 
-$(document).on('click', '.itemBtn', function(){
-   let listItem = $('.listItemInputBox').val();
-   $(".itemBox").append(
+function hello(e){
+    let previous = $(e).prev().val();
+    let listAdd = $(e).parent().parent().find(".itemBox");
+    $(listAdd).append(
        '<li class="item" style="display: flex; padding: 0 25px;">' +
             '<a class="itemCompBtn" href="#" onclick="itemMarkComplete(this)"><i class="fa fa-check" aria-hidden="true" style="color: #1F5899;"></i></a>' +
             '<a class="removeItem fa fa-trash-o" href="#" onclick="removeItem(this)" style="color: #000000; padding: 0 25px 0 5px"></a>' +
-            '<span contenteditable="true">' + listItem + '</span>' +
+            '<span contenteditable="true">' + previous + '</span>' +
        '</li>');
-   $('.listItemInputBox').val('');
-});
+   $("input").val('');
+};
 
-function addItem(add, myvalue, event){
-    if(event.which === 13){
-        $(".itemBox").append(
+function addItem(incid, myvalue, event){
+    if(event.keyCode === 13){
+        let listAdd = $(incid).parent().parent().find(".itemBox");
+        $(listAdd).append(
             '<li class="item" style="display: flex; padding: 0 25px;">' +
                 '<a class="itemCompBtn" href="#" onclick="itemMarkComplete(this)"><i class="fa fa-check" aria-hidden="true" style="color: #1F5899;"></i></a>' +
                 '<a class="removeItem fa fa-trash-o" href="#" onclick="removeItem(this)" style="color: #000000; padding: 0 25px 0 5px"></a>' +
